@@ -42,6 +42,8 @@ services:
       fint.audit.mongo.databasename: fint-audit-pwf
       fint.hazelcast.members: consumer,provider
       fint.cache.manager: hazelcast
+      fint.consumer.override-org-id: "true"
+      fint.consumer.default-org-id: pwf.no
     deploy:
       placement:
         constraints:
@@ -54,7 +56,7 @@ services:
         window: 120s
 
   health-adapter:
-    image: fint/health-adapter:latest
+    image: dtr.rogfk.no/fint-beta/health-adapter:1.1.0
     environment:
       TZ: Europe/Oslo
       springfox.title: "Health Adapter"
